@@ -65,10 +65,6 @@ public class Complex {
         return new Complex(re, -im);
     }
 
-    public Complex reciprocal() {
-        double scale = re * re + im * im;
-        return new Complex(re / scale, -im / scale);
-    }
 
     public double re() {
         return re;
@@ -105,7 +101,7 @@ public class Complex {
         double sin = (double) a.im / r;
         for (int i = 0; i < n; i++) {
             System.out.format("%s %.4f %s %d %s %.4f %s %d %s %d %s %.4f %s %d %s %d %s ",
-                    "z=", r, "^", n, "(cos(", Math.acos(cos), "+2Pi*", i, ")/", n, ")+isin(", Math.asin(sin), "+2Pi*", i, ")/", n, "))");
+                    "z=", r, "^1/", n, "(cos(", Math.acos(cos), "+2Pi*", i, ")/", n, ")+isin(", Math.asin(sin), "+2Pi*", i, ")/", n, "))");
             System.out.println();
         }
     }
@@ -119,7 +115,7 @@ public class Complex {
     }
 
     public static void main(String[] args) {
-        Complex a = new Complex(1, Math.sqrt(3));
+        Complex a = new Complex();
         Complex b = new Complex();
 
         System.out.println("a= " + a);
@@ -131,8 +127,7 @@ public class Complex {
         System.out.println("a / b= " + a.divides(b));
         System.out.println("conj(a)= " + a.conjugate());
         System.out.println("|a|=" + a.abs());
-        System.out.println(a.scale(3));
-        System.out.println(a.reciprocal());
+        System.out.println("a*3"+a.scale(3));
         System.out.println(plus(a, b));
         System.out.println(trigForm(a));
         sqrt(a, 3);
